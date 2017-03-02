@@ -6,6 +6,8 @@ $(function(){
         $('#employee_last_name').append('<td>' + employee.lastName + '</td>');
         $('#employee_age').append('<td>' + employee.age + '</td>');
         $('#employee_gender').append('<td>' + employee.gender + '</td>');
+        $('#employee_department').append('<td>' + employee.department.name + '</td>');
+        $('#employee_salary').append('<td>' + employee.salary + '</td>');
     });
 
     function getUrlVars() {
