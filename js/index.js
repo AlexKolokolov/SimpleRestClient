@@ -48,6 +48,28 @@ $(function(){
         });
     });
 
+    $.getJSON('http://localhost:8080/SimpleProject/webapi/employees/statistics', function(statistics){
+        console.log(statistics);
+        var $empStat = $('#empStat');
+        $.each(statistics, function(i, stat){
+            $empStat.append('<tr>',
+                '<td>' + stat.firstName + '</td>',
+                '<td>' + stat.lastName + '</td>',
+                '<td>' + stat.department + '</td>',
+                '<td>' + stat.salary + '</td>',
+                '<td>' + stat.avgSalary + '</td>',
+                '<td>' + stat.avgSalaryInDep + '</td>',
+                '<td>' + stat.avgSalaryByGender + '</td>',
+                '<td>' + stat.avgSalaryInDepByGender + '</td>', 
+                '<td>' + stat.sameGenderInDep + '</td>',
+                '<td>' + stat.menInDep + '</td>',
+                '<td>' + stat.womenInDep + '</td>',
+                '<td>' + stat.menTotal + '</td>',
+                '<td>' + stat.womenTotal + '</td>',
+                '</tr>');    
+        });
+    });
+
     $('form').submit(function(event){
         var data = $(this).serializeArray();
         console.log(data);
