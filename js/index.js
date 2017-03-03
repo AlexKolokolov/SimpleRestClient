@@ -57,12 +57,17 @@ $(function(){
             url: "http://localhost:8080/SimpleProject/webapi/employees",
             type: "POST",
             data: jsonEmployee,
-            dataType: "application/json",
-            contentType: "application/json"
+            dataType: "json",
+            contentType: "application/json",
+            async: false,
+            success: function() {
+                var msg = 'Employee ' + data[0]['value'] + ' ' + data[1]['value'] + ' has been hired';
+                alert(msg);
+            }
         });
         console.log("Employee " + jsonEmployee + " has been posted");
 
-        event.preventDefault();
+        // event.preventDefault();
     });
 
     function arrayToJson(array) {
